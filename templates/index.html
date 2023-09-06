@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>speech emotion recognition</title>
+
+    <link rel="stylesheet" type="text/css" href="../static/index.css"> 
+
+</head>
+<body>
+
+<center><h1>Speech Emotion Recognition System For Psychiatric Hospitals</h1></center>
+
+<div class="container">
+    <form class="grid" action="/result" method="POST">
+
+
+        <!-- {% if name and sentiment %}
+        <center>
+        <h3>{{name}}</h3>
+        <h3>{{sentiment}}</h3>
+        </center>
+        {% endif %}
+
+        <br><br> -->
+
+        {% if name and sentiment %}
+            {% if sentiment=='happy' %}
+                <div style = 'background: url("https://raw.github.com/octree/SwiftyWave/0.1.0/images/capture.gif")'>
+                    <h2 style="color: yellow;">Patient is Happy  <img src="../static/grapics/smile (1).png"></h2>
+                    <h1 style="color: rgb(250, 250, 29);">Patient mood is Good<img src="../static/grapics/checked.png"></h1>
+
+                    <!-- {% print(name) %}
+                    <br><br>
+                    {% print((name).replace(' [', '').replace(' (', '').replace(' [', '').replace(' ]', '')) %}
+                    <br><br> -->
+                    <p>Emotions in Conversation</p>
+                        <h3 style="color: rgb(255, 255, 255);" >{% print((name).replace('array', '').replace("'" , '').replace("," , '').replace('dtype=' , '').replace("<" , '').replace("U9" , '').replace('[', '').replace('(', '').replace('[', '').replace(']', '').replace(')', '')) %}</h3>
+                </div>
+            {% endif %}
+
+            {% if sentiment=='calm' %}
+                <div style = 'background: url("https://raw.github.com/octree/SwiftyWave/0.1.0/images/capture.gif")'>
+                    <h2 style="color: #00FF00;">Patient is Calm  <img src="../static/grapics/calm (1).png"></h2>
+                    <h1 style="color: #00ff00d0;">Patient mood is Calm <img src="../static/grapics/checked.png"></h1>
+
+                    <p>Emotions in Conversation</p>
+                        <h3 style="color: rgb(255, 255, 255);" >{% print((name).replace('array', '').replace("'" , '').replace("," , '').replace('dtype=' , '').replace("<" , '').replace("U9" , '').replace('[', '').replace('(', '').replace('[', '').replace(']', '').replace(')', '')) %}</h3>
+                </div>
+            {% endif %}
+
+            {% if sentiment=='neutral' %}
+                <div style = 'background: url("https://raw.github.com/octree/SwiftyWave/0.1.0/images/capture.gif")'>
+                    <h2 style="color: #D1C0A8;">Patient is Neutral  <img src="../static/grapics/neutral.png"></h2>
+                    <h1 style="color: #D1C0A8;">Patient mood is Neutral <img src="../static/grapics/checked.png"></h1>
+
+                    <p>Emotions in Conversation</p>
+                        <h3 style="color: rgb(255, 255, 255);" >{% print((name).replace('array', '').replace("'" , '').replace("," , '').replace('dtype=' , '').replace("<" , '').replace("U9" , '').replace('[', '').replace('(', '').replace('[', '').replace(']', '').replace(')', '')) %}</h3>
+                </div>
+            {% endif %}
+
+            {% if sentiment=='sad' %}
+                <div style = 'background: url("https://raw.github.com/octree/SwiftyWave/0.1.0/images/capture.gif")'>
+                    <h2 style="color: #4358bf;">Patient is Sad  <img src="../static/grapics/sad.png"></h2>
+                    <h1 style="color: #4358bf;">Patient mood is Sad <img src="../static/grapics/cancel.png"></h1>
+
+                    <p>Emotions in Conversation</p>
+                        <h3 style="color: rgb(255, 255, 255);" >{% print((name).replace('array', '').replace("'" , '').replace("," , '').replace('dtype=' , '').replace("<" , '').replace("U9" , '').replace('[', '').replace('(', '').replace('[', '').replace(']', '').replace(')', '')) %}</h3>
+                </div>
+            {% endif %}
+
+            {% if sentiment=='disgust' %}
+                <div style = 'background: url("https://raw.github.com/octree/SwiftyWave/0.1.0/images/capture.gif")'>
+                    <h2 style="color: #8a7e11;">Patient is Disgust  <img src="../static/grapics/disgusted.png"></h2>
+                    <h1 style="color: #8a7e11;">Patient mood is Disgust <img src="../static/grapics/cancel.png"></h1>
+
+                    <p>Emotions in Conversation</p>
+                        <h3 style="color: rgb(255, 255, 255);" >{% print((name).replace('array', '').replace("'" , '').replace("," , '').replace('dtype=' , '').replace("<" , '').replace("U9" , '').replace('[', '').replace('(', '').replace('[', '').replace(']', '').replace(')', '')) %}</h3>
+                </div>
+            {% endif %}
+
+            {% if sentiment=='depression' %}
+                <div style = 'background: url("https://raw.github.com/octree/SwiftyWave/0.1.0/images/capture.gif")'>
+                    <h2 style="color: #8a7e11;">Patient is in depression level  <img src="../static/grapics/disgusted.png"></h2>
+                    <h1 style="color: #8a7e11;">Patient has depression <img src="../static/grapics/cancel.png"></h1>
+
+                    <p>Emotions in Conversation</p>
+                        <h3 style="color: rgb(255, 255, 255);" >{% print((name).replace('array', '').replace("'" , '').replace("," , '').replace('dtype=' , '').replace("<" , '').replace("U9" , '').replace('[', '').replace('(', '').replace('[', '').replace(']', '').replace(')', '')) %}</h3>
+                </div>
+            {% endif %}
+
+            {% if sentiment=='suicide' %}
+                <div style = 'background: url("https://raw.github.com/octree/SwiftyWave/0.1.0/images/capture.gif")'>
+                    <h2 style="color: #8a7e11;">Patient is in suicide stage  <img src="../static/grapics/disgusted.png"></h2>
+                    <h1 style="color: #8a7e11;">Patient will suicide <img src="../static/grapics/cancel.png"></h1>
+
+                    <p>Emotions in Conversation</p>
+                        <h3 style="color: rgb(255, 255, 255);" >{% print((name).replace('array', '').replace("'" , '').replace("," , '').replace('dtype=' , '').replace("<" , '').replace("U9" , '').replace('[', '').replace('(', '').replace('[', '').replace(']', '').replace(')', '')) %}</h3>
+                </div>
+            {% endif %}
+
+
+
+        {% endif %}
+
+
+
+
+        <label for="name"> Choose Wav File :</label>
+        <!-- <input type="text" name="name" id="name"> -->
+        <input type="file" accept="audio/WAV,audio/*; id="name" name="name" required>
+
+        <center><input type="Submit" class="file_submit"></center>
+
+
+
+    </form>
+</div>
+
+</body>
+</html>
